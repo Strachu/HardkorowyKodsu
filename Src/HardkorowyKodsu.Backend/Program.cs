@@ -1,3 +1,9 @@
+using HardkorowyKodsu.Backend.Infrastructure;
+using HardkorowyKodsu.Backend.Infrastructure.Interfaces;
+using HardkorowyKodsu.Backend.Tables.DataAccess;
+using HardkorowyKodsu.Backend.Tables.DataAccess.Interfaces;
+using HardkorowyKodsu.Backend.Tables.MappingProfiles;
+
 namespace HardkorowyKodsu.Backend;
 
 public static class Program
@@ -30,5 +36,10 @@ public static class Program
 		services.AddControllers();
 		services.AddEndpointsApiExplorer();
 		services.AddSwaggerGen();
+
+		services.AddAutoMapper(typeof(GetTablesReturnDtoProfile).Assembly);
+
+		services.AddSingleton<IDbConnectionProvider, DbConnectionProvider>();
+		services.AddSingleton<ITablesDao, TablesDao>();
 	}
 }
