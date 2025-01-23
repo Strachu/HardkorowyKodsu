@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HardkorowyKodsu.Backend.Tables.DataAccess.Entities;
 using HardkorowyKodsu.Backend.Tables.DataAccess.Interfaces;
+using HardkorowyKodsu.Backend.Tables.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HardkorowyKodsu.Backend.Tables;
@@ -24,5 +25,21 @@ public class TablesController : ControllerBase
 		var tables = await mTablesDao.GetTablesSummaryAsync();
 
 		return Ok(mMapper.Map<IEnumerable<GetTablesReturnDto>>(tables));
+	}
+
+	[HttpGet("{id}")]
+	public async Task<ActionResult<GetTableReturnDto>> GetDetailsAsync(int id)
+	{
+		var columns = await mTablesDao.GetTableColumnsAsync(id);
+		if(!columns.Any())
+		{
+			return NotFound();
+		}
+
+		return Ok(new GetTableReturnDto
+		{
+			Id = id,
+			Columns = mMapper.Map<List<GetTableReturnDto.Column>>(columns)
+		});
 	}
 }

@@ -32,4 +32,23 @@ public class TablesDao : ITablesDao
 			return (await connection.QueryAsync<TableSummary>(sql)).ToList();
 		}
 	}
+
+	public async Task<IReadOnlyCollection<TableColumn>> GetTableColumnsAsync(int tableId)
+	{
+		var sql = $"""
+			SELECT
+				[c].[name] AS [Name],
+				[t].[name] AS [TypeName],
+				[c].[is_nullable] AS [IsNullable]
+			FROM [sys].[columns] c
+			JOIN [sys].[types] t ON [t].[user_type_id] = [c].[user_type_id]
+			WHERE [c].[object_id] = @tableId
+			ORDER BY [c].[Name]
+			""";
+
+		await using(var connection = await mConnectionProvider.GetConnectionAsync())
+		{
+			return (await connection.QueryAsync<TableColumn>(sql, new { tableId = tableId })).ToList();
+		}
+	}
 }
