@@ -28,6 +28,8 @@ public class TablesController : ControllerBase
 	}
 
 	[HttpGet("{id}")]
+	[ProducesResponseType<GetTableReturnDto>(StatusCodes.Status200OK)]
+	[ProducesResponseType(StatusCodes.Status404NotFound)]
 	public async Task<ActionResult<GetTableReturnDto>> GetDetailsAsync(int id)
 	{
 		var columns = await mTablesDao.GetTableColumnsAsync(id);
