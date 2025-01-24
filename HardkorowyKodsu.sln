@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FE4F2C99
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardkorowyKodsu.Backend.Tests", "Src\HardkorowyKodsu.Backend.Tests\HardkorowyKodsu.Backend.Tests.csproj", "{9E71BEA7-6C82-46CC-B1C7-5D3C4FD3D852}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardkorowyKodsu.Tests", "Src\HardkorowyKodsu.Tests\HardkorowyKodsu.Tests.csproj", "{97D98188-2A30-492E-84B7-FE687637A866}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardkorowyKodsu", "Src\HardkorowyKodsu\HardkorowyKodsu.csproj", "{91918486-08ED-4B5F-A6B4-C5A6B70BA4EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +27,20 @@ Global
 		{9E71BEA7-6C82-46CC-B1C7-5D3C4FD3D852}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E71BEA7-6C82-46CC-B1C7-5D3C4FD3D852}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E71BEA7-6C82-46CC-B1C7-5D3C4FD3D852}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97D98188-2A30-492E-84B7-FE687637A866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97D98188-2A30-492E-84B7-FE687637A866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97D98188-2A30-492E-84B7-FE687637A866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97D98188-2A30-492E-84B7-FE687637A866}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91918486-08ED-4B5F-A6B4-C5A6B70BA4EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91918486-08ED-4B5F-A6B4-C5A6B70BA4EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91918486-08ED-4B5F-A6B4-C5A6B70BA4EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91918486-08ED-4B5F-A6B4-C5A6B70BA4EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9E71BEA7-6C82-46CC-B1C7-5D3C4FD3D852} = {FE4F2C99-2972-4F8C-A4E5-E5DF29F482E9}
+		{97D98188-2A30-492E-84B7-FE687637A866} = {FE4F2C99-2972-4F8C-A4E5-E5DF29F482E9}
 	EndGlobalSection
 EndGlobal
