@@ -37,7 +37,7 @@ partial class TablesPanel
 		var dataGridViewCellStyle2 = new DataGridViewCellStyle();
 		var dataGridViewCellStyle3 = new DataGridViewCellStyle();
 		mLoadDataButton = new Button();
-		StatusLabel = new Label();
+		mStatusLabel = new Label();
 		splitContainer1 = new SplitContainer();
 		mTablesListBox = new ListBox();
 		mColumnsDataGridView = new DataGridView();
@@ -81,7 +81,7 @@ partial class TablesPanel
 		ControlPanel.ColumnStyles.Add(new ColumnStyle());
 		ControlPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
 		ControlPanel.Controls.Add(mLoadDataButton, 0, 0);
-		ControlPanel.Controls.Add(StatusLabel, 1, 0);
+		ControlPanel.Controls.Add(mStatusLabel, 1, 0);
 		ControlPanel.Dock = DockStyle.Fill;
 		ControlPanel.Location = new Point(3, 3);
 		ControlPanel.Name = "ControlPanel";
@@ -103,16 +103,15 @@ partial class TablesPanel
 		mLoadDataButton.UseVisualStyleBackColor = true;
 		mLoadDataButton.Click += mLoadDataButton_Click;
 		// 
-		// StatusLabel
+		// mStatusLabel
 		// 
-		StatusLabel.AutoEllipsis = true;
-		StatusLabel.Dock = DockStyle.Fill;
-		StatusLabel.Location = new Point(128, 0);
-		StatusLabel.Name = "StatusLabel";
-		StatusLabel.Size = new Size(463, 31);
-		StatusLabel.TabIndex = 1;
-		StatusLabel.Text = "Trwa pobieranie danych... czekaj i nie marudź...";
-		StatusLabel.TextAlign = ContentAlignment.MiddleCenter;
+		mStatusLabel.AutoEllipsis = true;
+		mStatusLabel.Dock = DockStyle.Fill;
+		mStatusLabel.Location = new Point(128, 0);
+		mStatusLabel.Name = "mStatusLabel";
+		mStatusLabel.Size = new Size(463, 31);
+		mStatusLabel.TabIndex = 1;
+		mStatusLabel.TextAlign = ContentAlignment.MiddleCenter;
 		// 
 		// splitContainer1
 		// 
@@ -152,6 +151,7 @@ partial class TablesPanel
 		mTablesListBox.Name = "mTablesListBox";
 		mTablesListBox.Size = new Size(266, 535);
 		mTablesListBox.TabIndex = 0;
+		mTablesListBox.SelectedValueChanged += mTablesListBox_SelectedValueChanged;
 		// 
 		// ColumnsGroupBox
 		// 
@@ -249,7 +249,7 @@ partial class TablesPanel
 	private GroupBox TablesGroupBox;
 	private GroupBox ColumnsGroupBox;
 	private Button mLoadDataButton;
-	private Label StatusLabel;
+	private Label mStatusLabel;
 	private ListBox mTablesListBox;
 	private DataGridView mColumnsDataGridView;
 	private DataGridViewTextBoxColumn mColumnNameDataGridViewColumn;
