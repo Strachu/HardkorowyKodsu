@@ -1,5 +1,4 @@
-﻿using HardkorowyKodsu.Backend.Tables.DataAccess.Entities;
-using HardkorowyKodsu.Backend.Tables.Dto;
+﻿using HardkorowyKodsu.Backend.Api.Tables.Dto;
 
 namespace HardkorowyKodsu.Tables.Interfaces;
 

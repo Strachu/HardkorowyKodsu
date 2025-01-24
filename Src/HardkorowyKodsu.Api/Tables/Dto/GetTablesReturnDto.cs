@@ -1,4 +1,4 @@
-﻿namespace HardkorowyKodsu.Backend.Tables.DataAccess.Entities;
+﻿namespace HardkorowyKodsu.Backend.Api.Tables.Dto;
 
 public class GetTablesReturnDto
 {

@@ -1,4 +1,4 @@
-﻿namespace HardkorowyKodsu.Backend.Tables.Dto;
+﻿namespace HardkorowyKodsu.Backend.Api.Tables.Dto;
 
 public partial class GetTableReturnDto
 {

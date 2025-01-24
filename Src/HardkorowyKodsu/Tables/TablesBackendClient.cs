@@ -1,6 +1,6 @@
 ﻿using System.Net.Http.Json;
-using HardkorowyKodsu.Backend.Tables.DataAccess.Entities;
-using HardkorowyKodsu.Backend.Tables.Dto;
+using HardkorowyKodsu.Backend.Api;
+using HardkorowyKodsu.Backend.Api.Tables.Dto;
 using HardkorowyKodsu.Tables.Interfaces;
 
 namespace HardkorowyKodsu.Tables;
@@ -18,7 +18,7 @@ internal class TablesBackendClient : ITablesBackendClient
 	{
 		using(var httpClient = mHttpClientFactory.CreateClient(HttpClientNames.Backend))
 		{
-			var response = await httpClient.GetAsync("/api/Tables", cancellationToken);
+			var response = await httpClient.GetAsync(ResourceUrls.Tables, cancellationToken);
 			response.EnsureSuccessStatusCode();
 
 			return await response.Content.ReadFromJsonAsync<IEnumerable<GetTablesReturnDto>>(cancellationToken);
@@ -29,7 +29,7 @@ internal class TablesBackendClient : ITablesBackendClient
 	{
 		using(var httpClient = mHttpClientFactory.CreateClient(HttpClientNames.Backend))
 		{
-			var response = await httpClient.GetAsync($"/api/Table/{tableId}", cancellationToken);
+			var response = await httpClient.GetAsync($"{ResourceUrls.Tables}/{tableId}", cancellationToken);
 			response.EnsureSuccessStatusCode();
 
 			return await response.Content.ReadFromJsonAsync<GetTableReturnDto>(cancellationToken);

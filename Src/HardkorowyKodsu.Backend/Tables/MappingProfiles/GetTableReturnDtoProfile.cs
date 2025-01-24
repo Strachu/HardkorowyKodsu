@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using HardkorowyKodsu.Backend.Api.Tables.Dto;
 using HardkorowyKodsu.Backend.Tables.DataAccess.Entities;
-using HardkorowyKodsu.Backend.Tables.Dto;
 
 namespace HardkorowyKodsu.Backend.Tables.MappingProfiles;
 

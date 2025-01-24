@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using HardkorowyKodsu.Backend.Tables.DataAccess.Entities;
+using HardkorowyKodsu.Backend.Api;
+using HardkorowyKodsu.Backend.Api.Tables.Dto;
 using HardkorowyKodsu.Backend.Tables.DataAccess.Interfaces;
-using HardkorowyKodsu.Backend.Tables.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HardkorowyKodsu.Backend.Tables;
 
-[Route("api/[controller]")]
+[Route(ResourceUrls.Tables)]
 [ApiController]
 public class TablesController : ControllerBase
 {

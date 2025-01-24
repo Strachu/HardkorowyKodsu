@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardkorowyKodsu.Tests", "Sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardkorowyKodsu", "Src\HardkorowyKodsu\HardkorowyKodsu.csproj", "{91918486-08ED-4B5F-A6B4-C5A6B70BA4EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardkorowyKodsu.Backend.Api", "Src\HardkorowyKodsu.Api\HardkorowyKodsu.Backend.Api.csproj", "{07B75397-FA1A-4F3E-AB2B-3D3BBFEA454F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{91918486-08ED-4B5F-A6B4-C5A6B70BA4EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91918486-08ED-4B5F-A6B4-C5A6B70BA4EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91918486-08ED-4B5F-A6B4-C5A6B70BA4EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07B75397-FA1A-4F3E-AB2B-3D3BBFEA454F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07B75397-FA1A-4F3E-AB2B-3D3BBFEA454F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07B75397-FA1A-4F3E-AB2B-3D3BBFEA454F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07B75397-FA1A-4F3E-AB2B-3D3BBFEA454F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
