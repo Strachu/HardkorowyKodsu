@@ -1,4 +1,6 @@
-﻿namespace HardkorowyKodsu.Tables.Interfaces;
+﻿using HardkorowyKodsu.Tables.ViewModels;
+
+namespace HardkorowyKodsu.Tables.Interfaces;
 
 internal interface ITablesView
 {
@@ -7,4 +9,7 @@ internal interface ITablesView
 	bool DataLoadingButtonEnabled { set; }
 	bool TableListEnabled { set; }
 	bool ColumnListEnabled { set; }
+
+	void ShowTables(ICollection<TableViewModel> tables);
+	void ShowColumns(ICollection<ColumnViewModel> columns);
 }

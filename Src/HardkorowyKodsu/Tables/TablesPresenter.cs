@@ -1,4 +1,6 @@
-﻿using HardkorowyKodsu.Tables.Interfaces;
+﻿using AutoMapper;
+using HardkorowyKodsu.Tables.Interfaces;
+using HardkorowyKodsu.Tables.ViewModels;
 
 namespace HardkorowyKodsu.Tables;
 
@@ -6,11 +8,13 @@ internal class TablesPresenter
 {
 	private readonly ITablesView mTablesView;
 	private readonly ITablesBackendClient mBackendClient;
+	private readonly IMapper mMapper;
 
-	public TablesPresenter(ITablesView tablesView, ITablesBackendClient backendClient)
+	public TablesPresenter(ITablesView tablesView, ITablesBackendClient backendClient, IMapper mapper)
 	{
 		mTablesView = tablesView;
 		mBackendClient = backendClient;
+		mMapper = mapper;
 
 		mTablesView.DataLoadingRequested += DataLoadingRequested;
 	}
@@ -19,9 +23,19 @@ internal class TablesPresenter
 	{
 		mTablesView.DataLoadingButtonEnabled = false;
 
-		await mBackendClient.GetTablesAsync(CancellationToken.None);
+		var tables = await mBackendClient.GetTablesAsync(CancellationToken.None);
+		var tablesViewModel = mMapper.Map<List<TableViewModel>>(tables);
+
+		mTablesView.ShowTables(tablesViewModel);
+		
+		var tableDetails = await mBackendClient.GetTableDetailsAsync(tablesViewModel[5].TableId, CancellationToken.None);
+		var columnsViewModel = mMapper.Map<List<ColumnViewModel>>(tableDetails.Columns);
+
+		mTablesView.ShowColumns(columnsViewModel);
 
 		mTablesView.DataLoadingButtonEnabled = true;
+		mTablesView.ColumnListEnabled = true;
+		mTablesView.TableListEnabled = true;
 	}
 
 	public void Show()

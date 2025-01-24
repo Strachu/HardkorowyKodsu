@@ -32,11 +32,18 @@ partial class TablesPanel
 		TableLayoutPanel ControlPanel;
 		GroupBox TablesGroupBox;
 		GroupBox ColumnsGroupBox;
+		var dataGridViewCellStyle1 = new DataGridViewCellStyle();
+		var dataGridViewCellStyle4 = new DataGridViewCellStyle();
+		var dataGridViewCellStyle2 = new DataGridViewCellStyle();
+		var dataGridViewCellStyle3 = new DataGridViewCellStyle();
 		mLoadDataButton = new Button();
 		StatusLabel = new Label();
 		splitContainer1 = new SplitContainer();
 		mTablesListBox = new ListBox();
 		mColumnsDataGridView = new DataGridView();
+		mColumnNameDataGridViewColumn = new DataGridViewTextBoxColumn();
+		mTypeNameDataGridViewColumn = new DataGridViewTextBoxColumn();
+		mNotNullDataGridViewColumn = new DataGridViewCheckBoxColumn();
 		MainTableLayoutPanel = new TableLayoutPanel();
 		ControlPanel = new TableLayoutPanel();
 		TablesGroupBox = new GroupBox();
@@ -163,15 +170,58 @@ partial class TablesPanel
 		mColumnsDataGridView.AllowUserToDeleteRows = false;
 		mColumnsDataGridView.AllowUserToOrderColumns = true;
 		mColumnsDataGridView.AllowUserToResizeRows = false;
+		dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+		dataGridViewCellStyle1.BackColor = SystemColors.Control;
+		dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+		dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+		dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+		dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+		dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+		mColumnsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 		mColumnsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+		mColumnsDataGridView.Columns.AddRange(new DataGridViewColumn[] { mColumnNameDataGridViewColumn, mTypeNameDataGridViewColumn, mNotNullDataGridViewColumn });
 		mColumnsDataGridView.Dock = DockStyle.Fill;
 		mColumnsDataGridView.Enabled = false;
 		mColumnsDataGridView.Location = new Point(3, 19);
 		mColumnsDataGridView.Name = "mColumnsDataGridView";
 		mColumnsDataGridView.ReadOnly = true;
+		dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+		dataGridViewCellStyle4.BackColor = SystemColors.Control;
+		dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+		dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+		dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+		dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+		dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+		mColumnsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+		mColumnsDataGridView.RowHeadersVisible = false;
 		mColumnsDataGridView.SelectionMode = DataGridViewSelectionMode.CellSelect;
 		mColumnsDataGridView.Size = new Size(312, 535);
 		mColumnsDataGridView.TabIndex = 0;
+		// 
+		// mColumnNameDataGridViewColumn
+		// 
+		mColumnNameDataGridViewColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+		dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+		mColumnNameDataGridViewColumn.DefaultCellStyle = dataGridViewCellStyle2;
+		mColumnNameDataGridViewColumn.HeaderText = "Nazwa";
+		mColumnNameDataGridViewColumn.Name = "mColumnNameDataGridViewColumn";
+		mColumnNameDataGridViewColumn.ReadOnly = true;
+		// 
+		// mTypeNameDataGridViewColumn
+		// 
+		dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+		mTypeNameDataGridViewColumn.DefaultCellStyle = dataGridViewCellStyle3;
+		mTypeNameDataGridViewColumn.HeaderText = "Typ";
+		mTypeNameDataGridViewColumn.Name = "mTypeNameDataGridViewColumn";
+		mTypeNameDataGridViewColumn.ReadOnly = true;
+		// 
+		// mNotNullDataGridViewColumn
+		// 
+		mNotNullDataGridViewColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+		mNotNullDataGridViewColumn.HeaderText = "NOT NULL";
+		mNotNullDataGridViewColumn.Name = "mNotNullDataGridViewColumn";
+		mNotNullDataGridViewColumn.ReadOnly = true;
+		mNotNullDataGridViewColumn.Width = 68;
 		// 
 		// TablesPanel
 		// 
@@ -202,4 +252,7 @@ partial class TablesPanel
 	private Label StatusLabel;
 	private ListBox mTablesListBox;
 	private DataGridView mColumnsDataGridView;
+	private DataGridViewTextBoxColumn mColumnNameDataGridViewColumn;
+	private DataGridViewTextBoxColumn mTypeNameDataGridViewColumn;
+	private DataGridViewCheckBoxColumn mNotNullDataGridViewColumn;
 }

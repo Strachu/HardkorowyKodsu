@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using HardkorowyKodsu.Tables.Interfaces;
 using HardkorowyKodsu;
+using HardkorowyKodsu.Tables.MappingProfiles;
 
 namespace HardkorowyKoksu;
 
@@ -42,6 +43,7 @@ internal static class Program
 		services.AddSingleton(configuration);
 
 		services.AddHttpClient(HttpClientNames.Backend, x => x.BaseAddress = new Uri(configuration.GetValue<string>("BackendUrl")));
+		services.AddAutoMapper(typeof(TableViewModelProfile).Assembly);
 
 		services.AddSingleton<MainForm>();
 		services.AddSingleton<ITablesView>(x => x.GetRequiredService<MainForm>().TablesPanel);
