@@ -5,17 +5,23 @@ namespace HardkorowyKodsu.Tables;
 internal class TablesPresenter
 {
 	private readonly ITablesView mTablesView;
+	private readonly ITablesBackendClient mBackendClient;
 
-	public TablesPresenter(ITablesView tablesView)
+	public TablesPresenter(ITablesView tablesView, ITablesBackendClient backendClient)
 	{
 		mTablesView = tablesView;
+		mBackendClient = backendClient;
 
 		mTablesView.DataLoadingRequested += DataLoadingRequested;
 	}
 
-	private void DataLoadingRequested(object sender, EventArgs e)
+	private async void DataLoadingRequested(object sender, EventArgs e)
 	{
 		mTablesView.DataLoadingButtonEnabled = false;
+
+		await mBackendClient.GetTablesAsync(CancellationToken.None);
+
+		mTablesView.DataLoadingButtonEnabled = true;
 	}
 
 	public void Show()
