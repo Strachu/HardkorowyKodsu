@@ -60,6 +60,12 @@ public partial class TablesPanel : UserControl, ITablesView
 		set
 		{
 			mTablesListBox.SelectedItem = value;
+
+			// Workaround for Windows Forms not issuing SelectedValueChanged when setting Item to null after changing DataSource
+			if(value == null)
+			{
+				TableSelectionChanged?.Invoke(this, new TableSelectionChangedEventArgs(null));
+			}
 		}
 	}
 

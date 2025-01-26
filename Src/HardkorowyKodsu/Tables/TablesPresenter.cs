@@ -44,7 +44,6 @@ internal class TablesPresenter
 
 			if(!currentOperationToken.IsCancellationRequested)
 			{
-				mTablesView.SelectedTable = null;
 				mTablesView.ShowTables(tablesViewModel);
 
 				mTablesView.SetInfoStatusMessage(string.Empty);
@@ -52,11 +51,7 @@ internal class TablesPresenter
 
 				if(previousSelectedModel != null)
 				{
-					var modelToSelect = tablesViewModel.SingleOrDefault(x => x.TableId == previousSelectedModel.TableId);
-					if(modelToSelect != null)
-					{
-						mTablesView.SelectedTable = modelToSelect;
-					}
+					mTablesView.SelectedTable = tablesViewModel.SingleOrDefault(x => x.TableId == previousSelectedModel.TableId);
 				}
 			}
 		}
@@ -74,8 +69,15 @@ internal class TablesPresenter
 
 	private async void TableSelectionChanged(object sender, TableSelectionChangedEventArgs e)
 	{
-		if(e.SelectedTable == null || mCurrentlyShownTable?.TableId == e.SelectedTable.TableId)
+		if(mCurrentlyShownTable?.TableId == e.SelectedTable?.TableId)
 		{
+			return;
+		}
+
+		if(e.SelectedTable == null)
+		{
+			mTablesView.ShowColumns([]);
+			mCurrentlyShownTable = null;
 			return;
 		}
 
